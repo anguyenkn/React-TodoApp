@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   render(){
-    const items_rendered = this.state.todos.map(item => <TodoItem handleChange={this.handleChange} key={item.id} info={item}/>);
+    const items_rendered = this.state.todos.map(item => <TodoItem handleChange={this.handleChange} key={item.id} item={item}/>);
     return (
       <div className="todo-list">
         {items_rendered}

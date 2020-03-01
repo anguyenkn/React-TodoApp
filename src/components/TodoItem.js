@@ -5,11 +5,11 @@ class TodoItem extends React.Component{
         return(
             <div className="todo-item">
                 <input 
-                    onChange={() => this.props.handleChange(this.props.info.id)} 
+                    onChange={() => this.props.handleChange(this.props.item.id)} 
                     type="checkbox" 
-                    checked={this.props.info.completed}
+                    checked={this.props.item.completed}
                 />
-                <label name={this.props.info.text}> {this.props.info.text}</label><br />
+                <label name={this.props.item.text}> {this.props.item.text}</label><br />
             </div>
         );
     }
