@@ -2,8 +2,15 @@ import React from "react"
 
 class TodoItem extends React.Component{
     render(){
+        const todoItemStyle = {}
+        if (this.props.item.completed) {
+            todoItemStyle["textDecoration"] = "line-through";
+            todoItemStyle["color"] = "gray";
+            todoItemStyle["fontStyle"] = "italic"
+        }
+
         return(
-            <div className="todo-item">
+            <div style={todoItemStyle} className="todo-item">
                 <input 
                     onChange={() => this.props.handleChange(this.props.item.id)} 
                     type="checkbox" 
