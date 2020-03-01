@@ -4,7 +4,7 @@ class TodoItem extends React.Component{
     render(){
         return(
             <div className="todo-item">
-                <input type="checkbox" checked={this.props.info.completed}/>
+                <input onChange={() => console.log("Changed!")} type="checkbox" checked={this.props.info.completed}/>
                 <label name={this.props.info.text}> {this.props.info.text}</label><br />
             </div>
         );
