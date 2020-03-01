@@ -10,10 +10,15 @@ class App extends React.Component {
     this.state = {
       data : inputData
     }
+    //this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(){
+    alert("Clicked")
   }
 
   render(){
-    const items_rendered = this.state.data.map(item => <TodoItem key={item.id} info={item}/>);
+    const items_rendered = this.state.data.map(item => <TodoItem onChange={handleChange} key={item.id} info={item}/>);
     return (
       <div className="todo-list">
         {items_rendered}
