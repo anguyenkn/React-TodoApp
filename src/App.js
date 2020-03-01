@@ -2,23 +2,34 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TodoItem from "./components/TodoItem"
-import inputData from "./todosData"
+import todosData from "./todosData"
 
 class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      data : inputData
+      todos : todosData
     }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(id){
-    alert("Clicked", id)
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }
+        return todo
+      })
+      return updatedTodos
+    })
   }
 
   render(){
-    const items_rendered = this.state.data.map(item => <TodoItem handleChange={this.handleChange} key={item.id} info={item}/>);
+    const items_rendered = this.state.todos.map(item => <TodoItem handleChange={this.handleChange} key={item.id} info={item}/>);
     return (
       <div className="todo-list">
         {items_rendered}
